@@ -1,0 +1,317 @@
+/* styles.css - Modern DTel Air Admin Dashboard */
+:root {
+  --bg: #0b1220;
+  --panel: #07101a;
+  --muted: #9fb6c4;
+  --accent: #14b1ff;
+  --accent-hover: #0ac0ff;
+  --glass: rgba(255, 255, 255, 0.05);
+  --radius: 12px;
+  --transition: 0.25s ease-in-out;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', system-ui, Arial, sans-serif;
+}
+
+body {
+  background: var(--bg);
+  color: #eaffff;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.app {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 220px;
+  background: linear-gradient(180deg, #04101a, #071827);
+  display: flex;
+  flex-direction: column;
+  padding: 20px 16px;
+  gap: 24px;
+  border-right: 1px solid rgba(255,255,255,0.05);
+}
+
+.brand {
+  font-weight: 700;
+  font-size: 22px;
+  color: var(--accent);
+}
+
+.brand span {
+  color: #fff;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+nav a {
+  color: var(--muted);
+  text-decoration: none;
+  padding: 10px 14px;
+  border-radius: var(--radius);
+  display: block;
+  transition: background var(--transition), color var(--transition);
+}
+
+nav a:hover {
+  background: rgba(20,177,255,0.1);
+  color: var(--accent-hover);
+}
+
+nav a.active {
+  background: rgba(20,177,255,0.2);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.sidebar-footer {
+  margin-top: auto;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* Main content */
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.topbar {
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+}
+
+.search input {
+  padding: 10px 12px;
+  border-radius: var(--radius);
+  border: 1px solid rgba(255,255,255,0.05);
+  background: transparent;
+  color: #eaffff;
+  transition: border var(--transition), background var(--transition);
+}
+
+.search input:focus {
+  border-color: var(--accent);
+  outline: none;
+  background: rgba(255,255,255,0.02);
+}
+
+.btn {
+  padding: 8px 14px;
+  border-radius: var(--radius);
+  border: none;
+  background: var(--accent);
+  color: #02111a;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background var(--transition), transform var(--transition);
+}
+
+.btn:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+}
+
+.btn.ghost {
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+.btn.ghost:hover {
+  background: rgba(20,177,255,0.1);
+  color: var(--accent-hover);
+  transform: translateY(-1px);
+}
+
+.content {
+  flex: 1;
+  padding: 20px 24px;
+  overflow-y: auto;
+  transition: opacity var(--transition);
+}
+
+h1 {
+  margin-bottom: 16px;
+}
+
+/* Grid & Cards */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.card {
+  background: var(--panel);
+  border-radius: var(--radius);
+  padding: 16px;
+  border: 1px solid rgba(255,255,255,0.05);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+}
+
+.card-title {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+.card-value {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+/* Tables */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+}
+
+.table th, .table td {
+  padding: 10px 12px;
+  text-align: left;
+  font-size: 14px;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  transition: background var(--transition);
+}
+
+.table tr:hover td {
+  background: rgba(20,177,255,0.05);
+}
+
+.filters, .controls {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+  align-items: center;
+}
+
+/* Forms */
+.form-row {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 12px;
+}
+
+.form-row input {
+  padding: 10px 12px;
+  border-radius: var(--radius);
+  border: 1px solid rgba(255,255,255,0.05);
+  background: rgba(255,255,255,0.02);
+  color: #eaffff;
+  transition: border var(--transition), background var(--transition);
+}
+
+.form-row input:focus {
+  outline: none;
+  border-color: var(--accent);
+  background: rgba(255,255,255,0.04);
+}
+
+/* Small text */
+.small {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* Hidden */
+.hidden {
+  display: none;
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition);
+}
+
+.modal.show {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.modal-body {
+  background: var(--panel);
+  padding: 20px;
+  border-radius: var(--radius);
+  width: 380px;
+  max-width: 90%;
+  border: 1px solid rgba(255,255,255,0.05);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+  animation: modalFadeIn 0.3s ease forwards;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+@keyframes modalFadeIn {
+  from { transform: translateY(-20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+.row-online {
+  color: #ffffff; /* белый для включённых */
+}
+
+.row-offline {
+  color: #ff7b7b; /* красный для отключённых */
+  opacity: 0.8;    /* чуть прозрачный для визуального эффекта */
+}
+
+/* Дополнительно к твоему styles.css */
+.card-value {
+  transition: all 0.3s ease;
+}
+.card-value.up {
+  color: #7df59b;
+  transform: scale(1.2);
+}
+.card-value.down {
+  color: #ff7b7b;
+  transform: scale(0.9);
+}
+.table td.online {
+  color: #fff;
+}
+.table td.offline {
+  color: #ff7b7b;
+}
